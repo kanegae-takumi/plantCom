@@ -1,8 +1,7 @@
-body {
-  margin: 0 20%;
-}
 main {
+	margin:0 20%;
   text-align: right;
+  background-color: white;
 }
 h1 {
   font-size: 24px;

@@ -1,19 +1,29 @@
+    <%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>質問投稿画面</title>
-    <link rel="stylesheet" href="html5reset-1.6.1.css" media="all" />
-    <link rel="stylesheet" href="question.css" media="all" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/html5reset-1.6.1.css" media="all" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css" />
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/question.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
+      <!-- ヘッダーを挿入 -->
+    <!-- サブヘッダーを挿入 -->
+	<jsp:include page="../inc/header.jsp" />
     <br />
     <main>
       <h1>&nbsp&nbsp質問投稿</h1>
       <hr />
       <form
-        action="questionConfirm.html"
+        action="${pageContext.request.contextPath}/QuestionConfirmServlet"
         method="post"
         onsubmit="return validateForm()"
       >
@@ -36,7 +46,7 @@
               <textarea
                 name="content"
                 id="content"
-                rows="5"
+                rows="15"
                 cols="40"
                 style="width: 100%"
               ></textarea>
@@ -46,20 +56,15 @@
         <input
           type="button"
           value="ホームに戻る"
-          onclick="location.href='index.html'"
+          onclick="location.href='${pageContext.request.contextPath}/mainJsp/index.jsp'"
         />
         <input type="submit" value="確認" />
       </form>
-      <script>
-        function validateForm() {
-          const content = document.getElementById('content').value;
-          if (content.length < 5) {
-            alert('本文は5文字以上入力してください');
-            return false; // フォーム送信を止める
-          }
-          return true; // OKなら送信
-        }
-      </script>
+      <br>
     </main>
+    	    <!-- フッターを挿入 -->
+    <jsp:include page="../inc/footer.jsp" />
+    <!-- スクリプト -->
+    <script src="${pageContext.request.contextPath}/js/script.js"></script>
   </body>
 </html>

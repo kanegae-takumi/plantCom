@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*鐘ケ江--------------------------------------------------------------*/
 html {
   height: 100%;
@@ -31,12 +32,6 @@ footer {
   box-shadow: none;
   transform: translateY(5px);
 }
-h1 {
-  font-size: 20px;
-  padding: 25px 0 10px 0;
-  color: #4c0f13;
-  text-decoration: underline;
-}
 /*以下CSS中身*/
 /* ------------------------------------------------------------------ */
 /* ヘッダー */
@@ -55,6 +50,7 @@ header {
   font-weight: bold;
   color: white;
   font-family: 'Mochiy Pop One', sans-serif;
+  text-decoration: none;
 }
 .header-right {
   display: flex;
@@ -137,105 +133,7 @@ header {
   text-decoration: none;
   font-size: 20px;
 }
-/* ------------------------------------------------------------------ */
-/* メイン */
-main {
-  display: flex;
-  width: 100%;
-}
-/* 左側 */
-.left-main {
-  width: 60%;
-}
-/* 右側 */
-.right-main {
-  width: 40%;
-}
-/* 今月の花・スライドバナー */
-.slide-banner {
-  position: relative;
-  background-color: white;
-  margin: 20px 0 20px 33%;
-  height: 260px;
-  text-align: center;
-  border-radius: 5px;
-  border: 1px solid #cfcfcf;
-}
-.sample-slider {
-  width: 40%;
-}
-.sample-slider img {
-  width: 100%;
-}
-.swiper-pagination-bullet {
-  background-color: #51d993 !important;
-}
-.swiper-button-prev,
-.swiper-button-next {
-  color: #51d993 !important;
-}
-/* 販売・質問 */
-.two-button {
-  text-align: center;
-  background-color: white;
-  margin: 20px 0 20px 33%;
-  height: 520px;
-  border-radius: 5px;
-  border: 1px solid #cfcfcf;
-}
-.two-button-container {
-  display: flex;
-  background-color: #f1f1f1;
-  width: 100%;
-}
-/* 販売（左） */
-.sale {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 50%;
-  height: 50px;
-  border-bottom: 4px solid rgb(243, 97, 122);
-}
-.sale a {
-  color: black;
-  text-decoration: none;
-  font-weight: bold;
-}
-.form {
-  text-align: left;
-  padding: 0 50px;
-}
-.form a {
-  text-decoration: none;
-  color: rgb(52, 92, 255);
-  font-weight: bold;
-}
-/* 質問（右） */
-.question {
-  color: black;
-  text-decoration: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 50%;
-  height: 50px;
-  border-left: 1px solid #cfcfcf;
-}
-.question a {
-  color: #a6a6a6;
-  text-decoration: none;
-  font-weight: bold;
-}
-/* 広告 */
-.advertisement {
-  text-align: center;
-  margin: 20px 50% 20px 20px;
-  height: 800px;
-  background-color: white;
-  border-radius: 5px;
-  border: 1px solid #cfcfcf;
-}
+
 /* ------------------------------------------------------------------- */
 /* フッダー */
 footer {

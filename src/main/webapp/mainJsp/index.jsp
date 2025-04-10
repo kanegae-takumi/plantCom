@@ -1,11 +1,14 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="html5reset-1.6.1.css" media="all" />
-    <link rel="stylesheet" href="style.css" />
+    <title>非会員TOPページ</title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/html5reset-1.6.1.css" media="all" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css" />
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/top.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&display=swap"
       rel="stylesheet"
@@ -16,35 +19,10 @@
     />
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
   </head>
-  <body>
-    <!-- ヘッダー -->
-    <header>
-      <div class="header-left">
-        <!-- <img src="headerLogo.png" alt="ヘッダー画像" /> -->
-        <p class="logo-text">Plant.com</p>
-      </div>
-      <div class="header-right">
-        <p class="button1">新規会員登録</p>
-        <p class="button1">ログイン</p>
-      </div>
-    </header>
-    <!-- サブヘッダー -->
-    <div class="sub-header">
-      <div class="sub-header-container">
-        <div class="btn-large">
-          <form action="★" method="post">
-            <input class="search-text" type="text" /><input
-              class="search-button"
-              type="submit"
-              value="検索"
-            />
-          </form>
-        </div>
-        <div class="btn-small"><a href="">Q&A一覧</a></div>
-        <div class="btn-small"><a href="">お知らせ</a></div>
-        <div class="btn-medium"><a href="question.html" >質問する</div>
-      </div>
-    </div>
+    <!-- ヘッダーを挿入 -->
+    <!-- サブヘッダーを挿入 -->
+	<jsp:include page="../inc/header.jsp" />
+	
     <!-- メイン -->
     <main>
       <br />
@@ -57,9 +35,9 @@
             <!-- 追加 -->
             <div class="swiper sample-slider">
               <div class="swiper-wrapper">
-                <div class="swiper-slide"><img src="nemo.jpg" /></div>
-                <div class="swiper-slide"><img src="sakura.jpg" /></div>
-                <div class="swiper-slide"><img src="chu.jpg" /></div>
+                <div class="swiper-slide"><img src="${pageContext.request.contextPath}/images/nemo.jpg" /></div>
+                <div class="swiper-slide"><img src="${pageContext.request.contextPath}/images/sakura.jpg" /></div>
+                <div class="swiper-slide"><img src="${pageContext.request.contextPath}/images/chu.jpg" /></div>
               </div>
             </div>
             <div class="swiper-pagination"></div>
@@ -102,10 +80,9 @@
       </div>
       <br />
     </main>
-    <!-- フッター -->
-    <footer>
-      <p>@Plant.com corporation</p>
-    </footer>
-    <script src="script.js"></script>
+    <!-- フッターを挿入 -->
+    <jsp:include page="../inc/footer.jsp" />
+    <!-- スクリプト -->
+    <script src="${pageContext.request.contextPath}/js/script.js"></script>
   </body>
 </html>
