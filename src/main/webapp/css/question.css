@@ -1,0 +1,25 @@
+body {
+  margin: 0 20%;
+}
+main {
+  text-align: right;
+}
+h1 {
+  font-size: 24px;
+  text-align: left;
+  border-left: 5px solid blue;
+}
+/* 以下CSS */
+table {
+  margin: 0 auto;
+}
+th,
+td {
+  padding-bottom: 10px;
+}
+th {
+  vertical-align: top;
+}
+td {
+  padding-left: 10px;
+}

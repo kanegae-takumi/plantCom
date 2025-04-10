@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="html5reset-1.6.1.css" media="all" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+  </head>
+  <body>
+    <!-- ヘッダー -->
+    <header>
+      <div class="header-left">
+        <!-- <img src="headerLogo.png" alt="ヘッダー画像" /> -->
+        <p class="logo-text">Plant.com</p>
+      </div>
+      <div class="header-right">
+        <p class="button1">新規会員登録</p>
+        <p class="button1">ログイン</p>
+      </div>
+    </header>
+    <!-- サブヘッダー -->
+    <div class="sub-header">
+      <div class="sub-header-container">
+        <div class="btn-large">
+          <form action="★" method="post">
+            <input class="search-text" type="text" /><input
+              class="search-button"
+              type="submit"
+              value="検索"
+            />
+          </form>
+        </div>
+        <div class="btn-small"><a href="">Q&A一覧</a></div>
+        <div class="btn-small"><a href="">お知らせ</a></div>
+        <div class="btn-medium"><a href="question.html" >質問する</div>
+      </div>
+    </div>
+    <!-- メイン -->
+    <main>
+      <br />
+      <!-- 左側メイン -->
+      <div class="left-main">
+        <!-- スライドバナー -->
+        <div class="slide-banner">
+          <h1>今月の花</h1>
+          <div class="swiper-container">
+            <!-- 追加 -->
+            <div class="swiper sample-slider">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="nemo.jpg" /></div>
+                <div class="swiper-slide"><img src="sakura.jpg" /></div>
+                <div class="swiper-slide"><img src="chu.jpg" /></div>
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+            <!-- 追加 -->
+            <div class="swiper-button-prev"></div>
+            <!-- 追加 -->
+            <div class="swiper-button-next"></div>
+            <!-- 追加 -->
+          </div>
+        </div>
+        <!-- 販売・質問 -->
+        <div class="two-button">
+          <div class="two-button-container">
+            <div class="sale"><a href="★">販売</a></div>
+            <div class="question"><a href="★">質問</a></div>
+          </div>
+          <div class="form">
+            <br />
+            <br />
+            <a href="★">ミカンの育て方について相談があります。</a>
+            <p>2025.4.4</p>
+            <hr />
+            <a href="★">桃の育て方について相談があります。</a>
+            <p>2025.4.4</p>
+            <hr />
+            <a href="★">檸檬の育て方について相談があります。</a>
+            <p>2025.4.4</p>
+            <hr />
+            <a href="★">ほうれん草の育て方について相談があります。</a>
+            <p>2025.4.4</p>
+            <hr />
+          </div>
+        </div>
+      </div>
+      <!-- 右側：広告 -->
+      <div class="right-main">
+        <div class="advertisement">
+          <h1>広告欄</h1>
+        </div>
+      </div>
+      <br />
+    </main>
+    <!-- フッター -->
+    <footer>
+      <p>@Plant.com corporation</p>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

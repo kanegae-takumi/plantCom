@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>質問投稿画面</title>
+    <link rel="stylesheet" href="html5reset-1.6.1.css" media="all" />
+    <link rel="stylesheet" href="question.css" media="all" />
+  </head>
+  <body>
+    <br />
+    <main>
+      <h1>&nbsp&nbsp質問投稿</h1>
+      <hr />
+      <form
+        action="questionConfirm.html"
+        method="post"
+        onsubmit="return validateForm()"
+      >
+        <table>
+          <tr>
+            <th>タイトル</th>
+            <td>
+              <input
+                type="text"
+                name="title"
+                id="title"
+                style="width: 100%"
+                required
+              />
+            </td>
+          </tr>
+          <tr>
+            <th>質問本文</th>
+            <td>
+              <textarea
+                name="content"
+                id="content"
+                rows="5"
+                cols="40"
+                style="width: 100%"
+              ></textarea>
+            </td>
+          </tr>
+        </table>
+        <input
+          type="button"
+          value="ホームに戻る"
+          onclick="location.href='index.html'"
+        />
+        <input type="submit" value="確認" />
+      </form>
+      <script>
+        function validateForm() {
+          const content = document.getElementById('content').value;
+          if (content.length < 5) {
+            alert('本文は5文字以上入力してください');
+            return false; // フォーム送信を止める
+          }
+          return true; // OKなら送信
+        }
+      </script>
+    </main>
+  </body>
+</html>

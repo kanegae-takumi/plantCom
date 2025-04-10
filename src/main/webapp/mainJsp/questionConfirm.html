@@ -1,0 +1,13 @@
+<%@ page import="javax.servlet.http.HttpSession" %> <% HttpSession session =
+request.getSession(); String title = (String) session.getAttribute("title");
+String content = (String) session.getAttribute("content"); %>
+
+<h1>入力内容の確認</h1>
+<p><strong>タイトル:</strong> <%= title %></p>
+<p><strong>質問本文:</strong> <%= content %></p>
+
+<form action="SubmitServlet" method="POST">
+  <input type="hidden" name="title" value="<%= title %>" />
+  <input type="hidden" name="content" value="<%= content %>" />
+  <input type="submit" value="送信" />
+</form>
