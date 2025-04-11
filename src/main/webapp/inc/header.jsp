@@ -15,7 +15,7 @@
 	<div class="sub-header-container">
 		<div class="btn-large">
 			<form action="★" method="post">
-				<input class="search-text" type="text" /><input
+				<input class="search-text" type="text" placeholder="Q&Aを探す"/><input
 					class="search-button" type="submit" value="検索" />
 			</form>
 		</div>
