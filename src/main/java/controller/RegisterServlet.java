@@ -9,6 +9,9 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
+import dao.UserDAO;
+import dto.UserDTO;
+
 @WebServlet("/register")
 public class RegisterServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -16,11 +19,12 @@ public class RegisterServlet extends HttpServlet {
 
         request.setCharacterEncoding("UTF-8");
 
+        String account_name = request.getParameter("account_name");
         String name = request.getParameter("name");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
 
-        UserDTO user = new UserDTO(name, email, password);
+        UserDTO user = new UserDTO(account_name, name, email, password);
         UserDAO dao = new UserDAO();
 
         try {
