@@ -2,6 +2,7 @@ package controller;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -11,6 +12,8 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import dao.QuestionDAO;
 import dto.QuestionDTO;
+
+// 他のインポートコード
 
 @WebServlet("/submitQuestion")
 public class SubmitQuestionServlet extends HttpServlet {
@@ -31,8 +34,11 @@ public class SubmitQuestionServlet extends HttpServlet {
         String title = request.getParameter("title");
         String content = request.getParameter("content");
 
+        // 現在の日時を取得してTimestampに変換
+        Timestamp created_at = new Timestamp(System.currentTimeMillis());
+
         // DTOの作成
-        QuestionDTO question = new QuestionDTO(title, content);
+        QuestionDTO question = new QuestionDTO(title, content, created_at);
 
         // DAOを使ってデータベースに保存
         QuestionDAO dao = new QuestionDAO();

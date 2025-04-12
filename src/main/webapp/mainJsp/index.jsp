@@ -71,7 +71,7 @@
 				<hr />
 				<c:forEach var="q" items="${questionList}">
 					<h3>${q.title}</h3>
-					<p>${q.content}</p>
+					<p>${q.created_at}</p>
 					<hr />
 				</c:forEach>
 			</div>

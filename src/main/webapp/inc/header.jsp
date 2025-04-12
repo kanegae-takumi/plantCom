@@ -3,7 +3,7 @@
 <!-- ヘッダー -->
 <header>
 	<div class="header-left">
-		<a class="logo-text" href="${pageContext.request.contextPath}/mainJsp/index.jsp">Plant.com</a>
+		<a class="logo-text" href="${pageContext.request.contextPath}/Index">Plant.com</a>
 	</div>
 	<div class="header-right">
 		<a href="${pageContext.request.contextPath}/mainJsp/register.jsp" class="button1">新規会員登録</a>
