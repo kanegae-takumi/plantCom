@@ -6,7 +6,7 @@
 		<a class="logo-text" href="${pageContext.request.contextPath}/mainJsp/index.jsp">Plant.com</a>
 	</div>
 	<div class="header-right">
-		<p class="button1">新規会員登録</p>
+		<a href="${pageContext.request.contextPath}/mainJsp/register.jsp" class="button1">新規会員登録</a>
 		<p class="button1">ログイン</p>
 	</div>
 </header>
