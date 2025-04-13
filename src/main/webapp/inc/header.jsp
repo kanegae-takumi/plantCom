@@ -23,6 +23,7 @@
 		<c:choose>
 			<c:when test="${not empty sessionScope.loginUser}">
 				<!-- ログイン済みの表示 -->
+				<p class="greeting">${sessionScope.loginUser.account_name}さん、こんにちは!</p>
 				<a href="${pageContext.request.contextPath}/mainJsp/profile.jsp"
 					class="button1">会員情報</a>
 				<a href="${pageContext.request.contextPath}/logout" class="button1">ログアウト</a>

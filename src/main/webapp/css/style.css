@@ -60,6 +60,10 @@ header {
   align-items: center;
   gap: 50px;
 }
+.greeting{
+	color:white;
+	font-weight: bold;
+}
 /* サブヘッダー */
 .sub-header {
   height: 75px;
