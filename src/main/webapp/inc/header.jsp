@@ -9,7 +9,7 @@
 			<c:when test="${not empty sessionScope.loginUser}">
 				<!-- ログイン時のロゴ -->
 				<a class="logo-text"
-					href="${pageContext.request.contextPath}/mainJsp/index.jsp">Plant.com
+					href="${pageContext.request.contextPath}/Index">Plant.com
 					Members</a>
 			</c:when>
 			<c:otherwise>
