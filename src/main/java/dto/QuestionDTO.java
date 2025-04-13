@@ -4,6 +4,7 @@ import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 
 public class QuestionDTO {
+	private int id;
     private String title;
     private String content;
     private Timestamp created_at;
@@ -16,6 +17,13 @@ public class QuestionDTO {
     }
 
     // ゲッターとセッター
+    public int getId() {
+        return id;
+    }
+    public void setId(int id) {
+        this.id = id;
+    }
+    
     public String getTitle() {
         return title;
     }

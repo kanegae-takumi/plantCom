@@ -70,7 +70,7 @@
 				<br /> <br />
 				<hr />
 				<c:forEach var="q" items="${questionList}">
-					<a href="★" class="question-title">${q.title}</a>
+					<a href="${pageContext.request.contextPath}/QuestionDetail?id=${q.id}" class="question-title">${q.title}</a>
 					<p class="question-date">${q.formattedCreatedAt}</p>
 					<hr />
 				</c:forEach>
