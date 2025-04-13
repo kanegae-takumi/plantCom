@@ -13,6 +13,7 @@ CREATE TABLE questions (
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP -- 質問の更新日時 (変更時に自動更新)
 );
 
+
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,

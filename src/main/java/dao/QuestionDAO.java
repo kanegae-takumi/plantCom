@@ -5,7 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,8 +29,7 @@ public class QuestionDAO {
 	        ps.setString(1, question.getTitle());
 	        ps.setString(2, question.getContent());
 	        
-	        // TimestampをStringに変換して保存
-	        ps.setString(3, new SimpleDateFormat("yyyy年M月d日 H時m分").format(question.getCreated_at()));
+	        ps.setTimestamp(3, question.getCreated_at());
 
 	        // SQL実行
 	        ps.executeUpdate();

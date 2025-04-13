@@ -70,8 +70,8 @@
 				<br /> <br />
 				<hr />
 				<c:forEach var="q" items="${questionList}">
-					<h3>${q.title}</h3>
-					<p>${q.created_at}</p>
+					<a href="★" class="question-title">${q.title}</a>
+					<p class="question-date">${q.formattedCreatedAt}</p>
 					<hr />
 				</c:forEach>
 			</div>

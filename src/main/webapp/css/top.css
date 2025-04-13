@@ -79,6 +79,13 @@ main {
   color: rgb(52, 92, 255);
   font-weight: bold;
 }
+a.question-title{
+	font-size: 20px;
+	font-weight: bold;
+}
+p.question-date{
+	color:rgb(108, 108, 108);
+}
 /* 質問（右） */
 .question {
   color: black;
@@ -90,7 +97,7 @@ main {
   height: 50px;
   border-left: 1px solid #cfcfcf;
 }
-.question a {
+.question  a{
   color: #a6a6a6;
   text-decoration: none;
   font-weight: bold;
