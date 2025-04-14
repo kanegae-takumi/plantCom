@@ -4,16 +4,25 @@ import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 
 public class QuestionDTO {
-	private int id;
+    private int id;
     private String title;
     private String content;
     private Timestamp created_at;
+    private int userId;  // ← 追加
 
-    // コンストラクタ
+    // 既存のコンストラクタ
     public QuestionDTO(String title, String content, Timestamp created_at) {
         this.title = title;
         this.content = content;
         this.created_at = created_at;
+    }
+
+    // 新コンストラクタ（userId対応）
+    public QuestionDTO(String title, String content, Timestamp created_at, int userId) {
+        this.title = title;
+        this.content = content;
+        this.created_at = created_at;
+        this.userId = userId;
     }
 
     // ゲッターとセッター
@@ -23,11 +32,10 @@ public class QuestionDTO {
     public void setId(int id) {
         this.id = id;
     }
-    
+
     public String getTitle() {
         return title;
     }
-
     public void setTitle(String title) {
         this.title = title;
     }
@@ -35,7 +43,6 @@ public class QuestionDTO {
     public String getContent() {
         return content;
     }
-
     public void setContent(String content) {
         this.content = content;
     }
@@ -43,9 +50,15 @@ public class QuestionDTO {
     public Timestamp getCreated_at() {
         return created_at;
     }
-
     public void setCreated_at(Timestamp created_at) {
         this.created_at = created_at;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     // フォーマット済みの日付文字列を返すメソッド（JSP用）

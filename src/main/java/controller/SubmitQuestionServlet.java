@@ -9,50 +9,52 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 import dao.QuestionDAO;
+import dto.LoginUserDTO; // ← ログイン時に使っているユーザー情報のDTO名に合わせてください
 import dto.QuestionDTO;
-
-// 他のインポートコード
 
 @WebServlet("/submitQuestion")
 public class SubmitQuestionServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-    /**
-     * コンストラクタ
-     */
     public SubmitQuestionServlet() {
         super();
     }
 
-    /**
-     * POSTリクエスト処理
-     */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // フォームから送信されたデータを取得
         String title = request.getParameter("title");
         String content = request.getParameter("content");
-
-        // 現在の日時を取得してTimestampに変換
         Timestamp created_at = new Timestamp(System.currentTimeMillis());
 
-        // DTOの作成
-        QuestionDTO question = new QuestionDTO(title, content, created_at);
+        // セッションからログインユーザー情報を取得
+        HttpSession session = request.getSession();
+        LoginUserDTO loginUser = (LoginUserDTO) session.getAttribute("loginUser");
 
-        // DAOを使ってデータベースに保存
+        if (loginUser == null) {
+            // ログインしていない場合、エラーページへ
+            request.setAttribute("message", "ログイン情報が見つかりません。再ログインしてください。");
+            request.getRequestDispatcher("/mainJsp/error.jsp").forward(request, response);
+            return;
+        }
+
+        int userId = loginUser.getId(); // ← loginUserDTO に getId() がある想定
+
+        // DTO作成（新仕様：userId含む）
+        QuestionDTO question = new QuestionDTO(title, content, created_at, userId);
+
+        // DAO処理
         QuestionDAO dao = new QuestionDAO();
         try {
-            dao.saveQuestion(question); // 質問をデータベースに保存
-            // 成功したら結果ページに転送
+            dao.saveQuestion(question);
             request.setAttribute("message", "質問が正常に登録されました！");
             request.setAttribute("question", question);
-            // 完了ページにフォワード
             request.getRequestDispatcher("/mainJsp/questionComplete.jsp").forward(request, response);
         } catch (SQLException e) {
-            // エラーメッセージをリクエストにセット
+            e.printStackTrace();
             request.setAttribute("message", "データベースに保存できませんでした。");
-            // エラーページに転送
             request.getRequestDispatcher("/mainJsp/error.jsp").forward(request, response);
         }
     }

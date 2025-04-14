@@ -43,12 +43,12 @@ public class LoginServlet extends HttpServlet {
             } else {
                 // 認証失敗
                 request.setAttribute("errorMessage", "メールアドレスまたはパスワードが違います。");
-                request.getRequestDispatcher("/login.jsp").forward(request, response);
+                request.getRequestDispatcher("/mainJsp/login.jsp").forward(request, response);
             }
         } catch (SQLException e) {
             e.printStackTrace();
             request.setAttribute("errorMessage", "データベースエラーが発生しました。");
-            request.getRequestDispatcher("/login.jsp").forward(request, response);
+            request.getRequestDispatcher("/mainJsp/login.jsp").forward(request, response);
         }
     }
 }

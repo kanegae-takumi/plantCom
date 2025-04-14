@@ -1,17 +1,13 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page session="true"%>
-<%
-// 登録後なのでセッション情報をクリア（Java側で一度だけ記述）
-session.invalidate();
-%>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>★</title>
+<title>会員情報ページ</title>
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/html5reset-1.6.1.css"
 	media="all" />
@@ -30,10 +26,18 @@ session.invalidate();
 
 	<!-- メインコンテンツ -->
 	<main>
-		<h1>登録完了</h1>
-		<p>会員登録が完了しました！ご利用ありがとうございます。</p>
+	<c:choose>
+    <c:when test="${not empty sessionScope.loginUser}">
+        <h1>会員情報</h1>
+        <p><strong>アカウント名:</strong> ${sessionScope.loginUser.account_name}</p>
+        <p><strong>氏名:</strong> ${sessionScope.loginUser.name}</p>
+        <p><strong>メールアドレス:</strong> ${sessionScope.loginUser.email}</p>
+    </c:when>
 
-		<a href="${pageContext.request.contextPath}/Index">トップページへ戻る</a>
+    <c:otherwise>
+        <c:redirect url="login.jsp" />
+    </c:otherwise>
+</c:choose>
 	</main>
 
 	<!-- フッターを挿入 -->
