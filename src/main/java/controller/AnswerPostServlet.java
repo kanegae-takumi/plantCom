@@ -30,6 +30,6 @@ public class AnswerPostServlet extends HttpServlet {
         AnswerDAO dao = new AnswerDAO();
         dao.insertAnswer(questionId, userId, content);
 
-        response.sendRedirect("QuestionDetailServlet?id=" + questionId);
+        response.sendRedirect(request.getContextPath() + "/QuestionDetail?id=" + questionId);
     }
 }

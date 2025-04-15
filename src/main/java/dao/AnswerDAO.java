@@ -57,7 +57,7 @@ public class AnswerDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
+        
         return answerList;
     }
 }
