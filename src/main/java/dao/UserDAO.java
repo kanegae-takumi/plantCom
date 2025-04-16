@@ -8,17 +8,17 @@ import dto.UserDTO;
 
 public class UserDAO {
     public void insertUser(UserDTO user) throws SQLException {
-        String sql = "INSERT INTO users (account_name, name, email, password) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO users (account_name, name, email, password, profile_image) VALUES (?, ?, ?, ?, ?)";
         try (
             Connection conn = DBManager.getConnection();
             PreparedStatement ps = conn.prepareStatement(sql);
         ) {
-        	ps.setString(1, user.getAccount_Name());
+            ps.setString(1, user.getAccount_Name());
             ps.setString(2, user.getName());
             ps.setString(3, user.getEmail());
             ps.setString(4, user.getPassword());
+            ps.setString(5, user.getProfileImage()); // ← 追加
             ps.executeUpdate();
         }
     }
 }
-

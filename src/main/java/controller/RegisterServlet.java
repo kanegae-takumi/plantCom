@@ -16,24 +16,26 @@ import dto.UserDTO;
 public class RegisterServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-    	
-    	//文字化け防止    	
+        
+        // 文字化け防止    	
         request.setCharacterEncoding("UTF-8");
 
-        //フォームから送られてきた値をそれぞれ取得
+        // フォームから送られてきた値をそれぞれ取得
         String account_name = request.getParameter("account_name");
         String name = request.getParameter("name");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
-        
-        //入力された情報を基にUserDTO(データ転送オブジェクト）を作成
-        //DTOは、データを１つのオブジェクトにまとめてやり取りをするためのもの        
+        String profile_image = request.getParameter("profile_image");  // 追加
+
+        // DTOを作成して値をセット
         UserDTO user = new UserDTO(account_name, name, email, password);
-        //データベース操作を行うUserDAOのインスタンスを作成        
+        user.setProfileImage(profile_image);  // 追加
+
+        // DAOの呼び出し
         UserDAO dao = new UserDAO();
 
         try {
-            dao.insertUser(user); //DAOクラスのinsertUser()メソッドを使って、ユーザー情報をデータベースに登録
+            dao.insertUser(user);
             request.setAttribute("message", "登録が完了しました！");
             request.getRequestDispatcher("/mainJsp/registerComplete.jsp").forward(request, response);
         } catch (SQLException e) {
@@ -43,5 +45,3 @@ public class RegisterServlet extends HttpServlet {
         }
     }
 }
-
-

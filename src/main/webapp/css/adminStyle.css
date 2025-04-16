@@ -1,0 +1,148 @@
+@charset "UTF-8";
+/*鐘ケ江--------------------------------------------------------------*/
+html {
+  height: 100%;
+}
+body {
+  background-color: #f1f1f1;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+header {
+  width: 100%;
+}
+footer {
+  position: sticky;
+  top: 100vh;
+}
+/* 共通CSS----------------------------------------------------------- */
+.button1 {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 15px 15px;
+  border-radius: 25px;
+  border: 3px solid white;
+  box-shadow: 0 9px #4c0f13;
+  transition: 0.05s ease-in-out;
+  cursor: pointer;
+}
+.button1:active {
+  box-shadow: none;
+  transform: translateY(5px);
+}
+/*以下CSS中身*/
+/* ------------------------------------------------------------------ */
+/* ヘッダー */
+header {
+  display: flex;
+  height: 100px;
+  background-color: rgb(171, 171, 171);
+  align-items: center;
+  border-bottom: 1px solid white;
+}
+.header-left {
+  padding-left: 20%; /* 左側の余白を追加 */
+}
+.logo-text {
+  font-size: 32px;
+  color: white;
+  font-family: 'Mochiy Pop One', sans-serif;
+  text-decoration: none;
+}
+.header-right {
+  display: flex;
+  margin-left: auto;
+  margin-right: 20%;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+.greeting{
+	color:white;
+	font-weight: bold;
+}
+/* サブヘッダー */
+.sub-header {
+  height: 75px;
+  background-color: rgb(171, 171, 171);
+  border-bottom: 1px solid white;
+  display: flex; /* 追加 */
+  align-items: center; /* 縦中央揃え */
+}
+.sub-header-container {
+  margin: 0 20%;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+/* 検索ボタン */
+.btn-large {
+  flex-grow: 4;
+  margin-right: 10px;
+  height: 45px;
+}
+.search-text {
+  width: 80%;
+  height: 40px;
+  border-radius: 10px 0 0 10px;
+  border-top: 2px solid #4c0f13;
+  border-left: 2px solid #4c0f13;
+  border-bottom: 2px solid #4c0f13;
+  border-right: none;
+  margin-right: 0;
+}
+.search-button {
+  font-weight: bold;
+  font-size: 16px;
+  color: white;
+  height: 45px;
+  padding: 0 20px;
+  background-color: rgb(52, 92, 255);
+  margin-left: 0;
+  border-radius: 0 10px 10px 0;
+  border-top: 2px solid #4c0f13;
+  border-right: 2px solid #4c0f13;
+  border-bottom: 2px solid #4c0f13;
+  border-left: none;
+}
+.btn-medium {
+  flex-grow: 3;
+  height: 75px;
+  background-color: rgb(52, 92, 255);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+}
+.btn-small {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  margin-right: 10px;
+  height: 45px;
+}
+.btn-small a {
+  text-decoration: none;
+  color: white;
+  text-decoration: underline;
+}
+.btn-medium a {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+/* ------------------------------------------------------------------- */
+/* フッダー */
+footer {
+  text-align: center;
+  height: 80px;
+  background-color: #1d1d1d;
+  color: #a6a6a6;
+}
+/* ------------------------------------------------------------------ */

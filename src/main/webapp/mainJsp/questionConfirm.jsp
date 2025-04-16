@@ -21,6 +21,7 @@
 	
 	<!-- メインコンテンツ -->
 	<main>
+	<div class="container">
 	<h1>質問内容の確認</h1>
   <form action="${pageContext.request.contextPath}/submitQuestion" method="post">
     <table>
@@ -38,10 +39,11 @@
     <input type="hidden" name="title" value="${title}">
     <input type="hidden" name="content" value="${content}">
 
-    <input type="button" value="戻る" onclick="history.back()">
-    <input type="submit" value="送信">
+    <input class="button3" type="button" value="戻る" onclick="history.back()">
+    <input class="button3"type="submit" value="送信">
   </form>
   <br>
+  </div>
 	</main>
 	
 	<!-- フッターを挿入 -->

@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -6,14 +5,14 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>質問完了画面</title>
+<title>管理者ログイン画面</title>
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/html5reset-1.6.1.css"
 	media="all" />
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/style.css" />
+	href="${pageContext.request.contextPath}/css/adminStyle.css" />
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/questionComplete.css" />
+	href="${pageContext.request.contextPath}/css/★.css" />
 <link
 	href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&display=swap"
 	rel="stylesheet" />
@@ -21,36 +20,14 @@
 <body>
 	<!-- ヘッダーを挿入 -->
 	<!-- サブヘッダーを挿入 -->
-	<jsp:include page="../inc/header.jsp" />
+	<jsp:include page="../inc/adminHeader.jsp" />
 
 	<!-- メインコンテンツ -->
 	<main>
-		<div class="container">
-			<title>質問送信完了</title>
-			</head>
-			<body>
-				<h1>質問が送信されました</h1>
-
-				<p>${message}</p>
-
-				<table>
-					<tr>
-						<th>タイトル</th>
-						<td>${question.title}</td>
-					</tr>
-					<tr>
-						<th>内容</th>
-						<td><pre>${question.content}</pre></td>
-					</tr>
-				</table>
-				<br>
-				<a href="${pageContext.request.contextPath}/Index">ホームに戻る</a>
-		</div>
-
-	</main>
+	a</main>
 
 	<!-- フッターを挿入 -->
-	<jsp:include page="../inc/footer.jsp" />
+	<jsp:include page="../inc/adminFooter.jsp" />
 	<!-- スクリプト -->
 	<script src="${pageContext.request.contextPath}/js/script.js"></script>
 </body>

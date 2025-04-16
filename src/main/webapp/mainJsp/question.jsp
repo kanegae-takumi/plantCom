@@ -55,10 +55,11 @@
         </table>
         <input
           type="button"
+          class="button3"
           value="ホームに戻る"
-          onclick="location.href='${pageContext.request.contextPath}/mainJsp/index.jsp'"
+          onclick="location.href='${pageContext.request.contextPath}/Index'"
         />
-        <input type="submit" value="確認" />
+        <input class="button4" type="submit" value="確認" />
       </form>
       <br>
     </main>

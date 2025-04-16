@@ -57,10 +57,13 @@ public class QuestionDAO {
         return questionList;
     }
 
-    // IDで質問を検索して取得するメソッド
+ // IDで質問を検索して取得するメソッド（投稿者名も取得）
     public QuestionDTO findById(int id) {
         QuestionDTO question = null;
-        String sql = "SELECT id, title, content, created_at, user_id FROM questions WHERE id = ?";
+        String sql = "SELECT q.id, q.title, q.content, q.created_at, q.user_id, u.account_name, u.profile_image " +
+                "FROM questions q " +
+                "JOIN users u ON q.user_id = u.id " +
+                "WHERE q.id = ?";
 
         try (Connection conn = DBManager.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
@@ -73,9 +76,11 @@ public class QuestionDAO {
                         rs.getString("title"),
                         rs.getString("content"),
                         rs.getTimestamp("created_at"),
-                        rs.getInt("user_id") // ← 追加
+                        rs.getInt("user_id")
                     );
                     question.setId(rs.getInt("id"));
+                    question.setAccountName(rs.getString("account_name"));
+                    question.setProfileImage(rs.getString("profile_image"));
                 }
             }
         } catch (SQLException e) {
@@ -84,4 +89,5 @@ public class QuestionDAO {
 
         return question;
     }
+
 }

@@ -5,27 +5,22 @@
       <p><span id="logo">@Plant.com</span> corporation</p>
     </footer>
     
-<script>
+    <script>
   let clickCount = 0;
   let timer = null;
 
-  document.getElementById('logo').addEventListener('click', (event) => {
-    // Shiftキーが押されていなければカウントしない
-    if (!event.shiftKey) {
-      clickCount = 0;
-      clearTimeout(timer);
-      return;
-    }
-
+  document.getElementById('logo').addEventListener('click', () => {
     clickCount++;
 
+    // 5秒以内に3回クリックされたら admin.jsp に移動
     if (clickCount === 3) {
-      window.location.href = '<%= request.getContextPath() %>/admin/adminLogin.jsp';
+      window.location.href = '<%= request.getContextPath() %>/Index';
     }
 
+    // タイマーをリセット（5秒以内に連続クリックが条件）
     clearTimeout(timer);
     timer = setTimeout(() => {
       clickCount = 0;
-    }, 1000); // 1秒以内に3回クリック
+    }, 5000);
   });
 </script>

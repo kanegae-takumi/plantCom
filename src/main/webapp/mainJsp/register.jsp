@@ -1,24 +1,34 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>会員情報登録画面</title>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/html5reset-1.6.1.css" media="all" />
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css" />
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/register.css" />
-<link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&display=swap" rel="stylesheet" />
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/html5reset-1.6.1.css"
+	media="all" />
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/style.css" />
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/register.css" />
+<link
+	href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&display=swap"
+	rel="stylesheet" />
 </head>
 <body>
 	<!-- ヘッダー -->
 	<jsp:include page="../inc/header.jsp" />
 
 	<main>
-		<h1>会員登録フォーム</h1>
-		<form action="${pageContext.request.contextPath}/registerConfirm" method="post">
+		<div class="register-container">
+			<h1>会員登録フォーム</h1>
+			<form action="${pageContext.request.contextPath}/registerConfirm"
+				method="post"
+				enctype="multipart/form-data">
 		<table>
-		<tr>
+			<tr>
 			<th>ユーザー名：</th>
 			<td><input type="text" name="account_name" required value="${param.account_name}"></td>
 			</tr>
@@ -37,9 +47,16 @@
 			<th>パスワード：</th>
 			<td><input type="password" name="password" required value="${param.password}"></td>
 			</tr>
+			
+			<tr>
+  			<th>プロフィール画像：</th>
+  			<td><input type="file" name="profile_image" accept="image/*"></td>
+			</tr>
+			
 			</table>
-			<input type="submit" value="確認画面へ">
+			<input class="confirm" type="submit" value="確認画面へ">
 		</form>
+		</div>
 	</main>
 
 	<!-- フッター -->

@@ -8,12 +8,12 @@
 		<c:choose>
 			<c:when test="${not empty sessionScope.loginUser}">
 				<!-- ログイン時のロゴ -->
-				<a class="logo-text" href="${pageContext.request.contextPath}/Index">Plant.com
-					Members</a>
+				<a class="logo-text"
+					href="${pageContext.request.contextPath}/Index">管理者画面 in</a>
 			</c:when>
 			<c:otherwise>
 				<!-- 未ログイン時のロゴ -->
-				<a class="logo-text" href="${pageContext.request.contextPath}/Index">Plant.com</a>
+				<a class="logo-text" href="${pageContext.request.contextPath}/Index">管理者画面</a>
 			</c:otherwise>
 		</c:choose>
 	</div>
@@ -41,39 +41,16 @@
 <div class="sub-header">
 	<div class="sub-header-container">
 		<div class="btn-large">
-			<form
-				action="${pageContext.request.contextPath}/SearchQuestionServlet"
-				method="get">
-				<input class="search-text" type="text" name="keyword"
-					placeholder="Q&Aを探す" /><input class="search-button" type="submit"
-					value="検索" />
+			<form action="${pageContext.request.contextPath}/SearchQuestionServlet" method="get">
+				<input class="search-text" type="text" name="keyword" placeholder="Q&Aを探す" /><input
+					class="search-button" type="submit" value="検索" />
 			</form>
 		</div>
 		<div class="btn-small">
 			<a href="">Q&A一覧</a>
 		</div>
 		<div class="btn-small">
-			<c:choose>
-				<c:when
-					test="${not empty sessionScope.loginUser and not empty sessionScope.loginUser.profile_image}">
-					<!-- ログイン時にプロフィール画像を表示 -->
-					<a href="${pageContext.request.contextPath}/mainJsp/profile.jsp">
-						<img
-						src="${pageContext.request.contextPath}/uploads/${sessionScope.loginUser.profile_image}"
-						alt="お知らせ"
-						style="width: 50px; height: 50px; border-radius: 40px; border: 2px solid green;" />
-					</a>
-				</c:when>
-				<c:otherwise>
-					<!-- デフォルト画像を表示 -->
-					<a href="${pageContext.request.contextPath}/mainJsp/profile.jsp">
-						<img
-						src="${pageContext.request.contextPath}/images/notice-icon.png"
-						alt="お知らせ"
-						style="width: 50px; height: 50px; border-radius: 40px; border: 2px solid green;" />
-					</a>
-				</c:otherwise>
-			</c:choose>
+			<a href="">お知らせ</a>
 		</div>
 		<div class="btn-medium">
 			<a href="${pageContext.request.contextPath}/mainJsp/question.jsp">質問する</a>

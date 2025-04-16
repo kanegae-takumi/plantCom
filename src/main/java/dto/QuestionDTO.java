@@ -8,7 +8,9 @@ public class QuestionDTO {
     private String title;
     private String content;
     private Timestamp created_at;
-    private int userId;  // ← 追加
+    private int userId;
+    private String accountName;     // ← 投稿者名
+    private String profileImage;    // ← プロフィール画像ファイル名
 
     // 既存のコンストラクタ
     public QuestionDTO(String title, String content, Timestamp created_at) {
@@ -17,7 +19,7 @@ public class QuestionDTO {
         this.created_at = created_at;
     }
 
-    // 新コンストラクタ（userId対応）
+    // userId 対応のコンストラクタ
     public QuestionDTO(String title, String content, Timestamp created_at, int userId) {
         this.title = title;
         this.content = content;
@@ -25,7 +27,7 @@ public class QuestionDTO {
         this.userId = userId;
     }
 
-    // ゲッターとセッター
+    // --- ゲッターとセッター ---
     public int getId() {
         return id;
     }
@@ -59,6 +61,20 @@ public class QuestionDTO {
     }
     public void setUserId(int userId) {
         this.userId = userId;
+    }
+
+    public String getAccountName() {
+        return accountName;
+    }
+    public void setAccountName(String accountName) {
+        this.accountName = accountName;
+    }
+
+    public String getProfileImage() {
+        return profileImage;
+    }
+    public void setProfileImage(String profileImage) {
+        this.profileImage = profileImage;
     }
 
     // フォーマット済みの日付文字列を返すメソッド（JSP用）

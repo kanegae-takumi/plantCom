@@ -8,7 +8,7 @@
     <title>ログインページ</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/html5reset-1.6.1.css" media="all" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css" />
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/★.css" />
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/login.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&display=swap"
       rel="stylesheet"
@@ -21,6 +21,7 @@
 	
 	<!-- メインコンテンツ -->
 	<main>
+	<div class="login-container">
 	    <h2>ログインページ</h2>
 
     <!-- エラーメッセージがあれば表示 -->
@@ -38,9 +39,10 @@
 
         <button type="submit">ログイン</button>
     </form>
-
+	</div>
+	
     <br>
-    <a href="${pageContext.request.contextPath}/register.jsp">新規会員登録はこちら</a>
+    <a href="${pageContext.request.contextPath}/mainJsp/register.jsp">新規会員登録はこちら</a>
 	</main>
 	
 	<!-- フッターを挿入 -->

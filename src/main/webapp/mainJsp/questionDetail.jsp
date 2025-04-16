@@ -13,7 +13,7 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/style.css" />
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/★.css" />
+	href="${pageContext.request.contextPath}/css/questionDetail.css" />
 <link
 	href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&display=swap"
 	rel="stylesheet" />
@@ -24,22 +24,36 @@
 
 	<!-- メインコンテンツ -->
 	<main>
-		<h2>${question.title}</h2>
-		<p>${question.content}</p>
-		<p>投稿日時: ${question.formattedCreatedAt}</p>
+		<!-- 質問内容表示 -->
+		<div class="question-container">
+			<div class="profile-container">
+			<img
+				src="${pageContext.request.contextPath}/uploads/${question.profileImage}"
+				alt="プロフィール画像"
+				style="width: 40px; height: 40px; border-radius: 50%; margin-right: 10px;" />
+			<p>投稿者: ${question.accountName}</p>
+			</div>
+			<hr>
+			<h2>タイトル：${question.title}</h2>
+			<hr>
+			<p>${question.content}</p>
+			<br>
+			<p>投稿日時: ${question.formattedCreatedAt}</p>
+		</div>
 
 		<!-- 回答フォーム -->
-		<c:if test="${not empty sessionScope.loginUser}">
-			<!-- ログインしている場合のみ、回答フォームを表示 -->
-			<form action="${pageContext.request.contextPath}/AnswerPostServlet"
-				method="post">
-				<input type="hidden" name="question_id" value="${question.id}" />
-				<textarea name="content" rows="5" cols="50"
-					placeholder="ここに回答を入力してください" required></textarea>
-				<br>
-				<button type="submit">回答する</button>
-			</form>
-		</c:if>
+		<div class="answer-form">
+			<c:if test="${not empty sessionScope.loginUser}">
+				<!-- ログインしている場合のみ、回答フォームを表示 -->
+				<form action="${pageContext.request.contextPath}/AnswerPostServlet"
+					method="post">
+					<input type="hidden" name="question_id" value="${question.id}" />
+					<textarea name="content" rows="5" cols="50"
+						placeholder="ここに回答を入力してください" required></textarea>
+					<button class="answer-button" type="submit">回答する</button>
+				</form>
+			</c:if>
+		</div>
 
 		<!-- ログインしていない場合は、「ログインすると回答できます。」を表示 -->
 		<c:if test="${empty sessionScope.loginUser}">
@@ -49,25 +63,27 @@
 		</c:if>
 
 		<!-- 回答一覧 -->
-		<h3>回答一覧</h3>
-		<hr>
-		<c:if test="${not empty answerList}">
-			<ul>
-				<c:forEach var="answer" items="${answerList}">
-					<li>
-						<p>
-							<strong>${answer.userAccountName} さんの回答:</strong>
-						</p>
-						<p>${answer.content}</p>
-						<p>投稿日時: ${answer.createdAt}</p>
-						<hr>
-					</li>
-				</c:forEach>
-			</ul>
-		</c:if>
-		<c:if test="${empty answerList}">
-			<p>まだ回答がありません。</p>
-		</c:if>
+		<div class="answer-summary">
+			<h3>回答一覧</h3>
+			<hr>
+			<c:if test="${not empty answerList}">
+				<ul>
+					<c:forEach var="answer" items="${answerList}">
+						<li>
+							<p>
+								<strong>${answer.userAccountName} さんの回答:</strong>
+							</p>
+							<p>${answer.content}</p>
+							<p>投稿日時: ${answer.createdAt}</p>
+							<hr>
+						</li>
+					</c:forEach>
+				</ul>
+			</c:if>
+			<c:if test="${empty answerList}">
+				<p>まだ回答がありません。</p>
+			</c:if>
+		</div>
 	</main>
 
 	<!-- フッターを挿入 -->

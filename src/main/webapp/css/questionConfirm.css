@@ -1,15 +1,35 @@
 @charset "UTF-8";
 main{
-	margin:0 20%;
+	margin:0 35%;
 	text-align: center;
 	background-color: white;
 }
 table{
 	margin:0 auto;
+	width: 100%;
+	table-layout: fixed;
+}
+
+table td{
+	overflow-wrap : break-word;
+	text-align: left;
 }
 h1 {
   font-size: 20px;
-  padding: 25px 0 25px 0;
-  color: #4c0f13;
-  text-decoration: underline;
+  padding: 15px 0 25px 20px;
+  text-align: left;
+}
+.container{
+	background-color: white;
+	border: 1px solid #cfcfcf;
+	margin:20px 0 20px 0;
+	padding:20px 20px 20px 20px;
+}
+.button3{
+	padding: 10px 25px;
+	border: none;
+	background-color: blue;
+	color: white;
+	font-weight: bold;
+	border-radius: 5px;
 }
