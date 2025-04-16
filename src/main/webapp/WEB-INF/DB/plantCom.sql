@@ -39,6 +39,16 @@ CREATE TABLE answers (
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
 
+CREATE TABLE replies (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    answer_id INT NOT NULL,
+    user_id INT NOT NULL,
+    content TEXT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (answer_id) REFERENCES answers(id),
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
 SET FOREIGN_KEY_CHECKS = 0;
 DROP TABLE IF EXISTS users;
 SET FOREIGN_KEY_CHECKS = 1;

@@ -27,16 +27,34 @@ public class QuestionDetail extends HttpServlet {
             return;
         }
 
-        // パラメータ取得
+        // パラメータ取得と検証
         String idStr = request.getParameter("id");
-        int id = Integer.parseInt(idStr);
+        if (idStr == null || idStr.isEmpty()) {
+            request.setAttribute("errorMessage", "質問IDが不正です。");
+            request.getRequestDispatcher("/mainJsp/error.jsp").forward(request, response);
+            return;
+        }
+
+        int id;
+        try {
+            id = Integer.parseInt(idStr);
+        } catch (NumberFormatException e) {
+            request.setAttribute("errorMessage", "質問IDが不正な形式です。");
+            request.getRequestDispatcher("/mainJsp/error.jsp").forward(request, response);
+            return;
+        }
 
         // 質問情報をDBから取得
         QuestionDAO dao = new QuestionDAO();
         QuestionDTO question = dao.findById(id);
+        if (question == null) {
+            request.setAttribute("errorMessage", "指定された質問は存在しません。");
+            request.getRequestDispatcher("/mainJsp/error.jsp").forward(request, response);
+            return;
+        }
         request.setAttribute("question", question);
 
-        // 回答一覧を取得（← ここが今回の追加ポイント）
+        // 回答一覧を取得
         AnswerDAO answerDao = new AnswerDAO();
         List<AnswerDTO> answerList = answerDao.getAnswersByQuestionId(id);
         request.setAttribute("answerList", answerList);
@@ -46,3 +64,4 @@ public class QuestionDetail extends HttpServlet {
         dispatcher.forward(request, response);
     }
 }
+
