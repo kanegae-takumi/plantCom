@@ -34,7 +34,7 @@
 					<li>
 						<h3>
 							<a
-								href="${pageContext.request.contextPath}/QuestionDetailServlet?id=${question.id}">${question.title}</a>
+								href="${pageContext.request.contextPath}/QuestionDetail?id=${question.id}">${question.title}</a>
 						</h3>
 						<p>${question.content}</p>
 						<p>投稿日時: ${question.formattedCreatedAt}</p>
